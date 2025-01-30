@@ -1,0 +1,42 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="breedingames3"
+run/main_scene="res://main_menu.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalData="*res://global_data.gd"
+
+[display]
+
+window/size/mode=3
+
+[dotnet]
+
+project/assembly_name="breedingames3"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
+[file_customization]
+
+folder_colors={
+"res://Font/": "green",
+"res://mainMenu/": "orange",
+"res://pet profile ui/": "orange",
+"res://petCreator UI/": "orange"
+}

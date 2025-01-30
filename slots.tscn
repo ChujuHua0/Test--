@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://do721blrvvdqq"]
+
+[ext_resource type="Script" path="res://slots.gd" id="1_83sad"]
+
+[node name="slot" type="Node2D"]
+script = ExtResource("1_83sad")
+
+[node name="slot" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 504.0
+offset_right = 264.0
+offset_bottom = 704.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.894922, 0.894922, 0.894922, 1)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 504.0
+offset_right = 72.0
+offset_bottom = 512.0
+scale = Vector2(25.0166, 25.0302)
+
+[node name="name" type="Label" parent="."]
+offset_left = 88.0
+offset_top = 480.0
+offset_right = 231.0
+offset_bottom = 503.0
+text = "Here go the name "
+horizontal_alignment = 1

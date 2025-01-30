@@ -1,0 +1,233 @@
+[gd_scene load_steps=20 format=3 uid="uid://bj2e7cbmr8m2a"]
+
+[ext_resource type="Texture2D" uid="uid://c2ahtdnh5ayrx" path="res://pet profile ui/Summer2.png" id="1_lbuvb"]
+[ext_resource type="Script" path="res://pet_profile_scn.gd" id="1_sxs4k"]
+[ext_resource type="Texture2D" uid="uid://dhom8gbk1ord3" path="res://pet profile ui/petPanel.png" id="2_d63sy"]
+[ext_resource type="FontFile" uid="uid://ce7xf4lo48a2u" path="res://pet profile ui/Artifika-Regular.ttf" id="3_mdkvu"]
+[ext_resource type="Texture2D" uid="uid://m88vbf3fa0au" path="res://pet profile ui/petBackToInv.png" id="3_n44a5"]
+[ext_resource type="Script" path="res://pet_back_to_inv.gd" id="4_s7erx"]
+[ext_resource type="Texture2D" uid="uid://civ5ksojg5311" path="res://pet profile ui/petBackToInvHover.png" id="5_yttoo"]
+[ext_resource type="Texture2D" uid="uid://l0xkajv2wrbf" path="res://pet profile ui/petInventory.png" id="7_2cqm6"]
+[ext_resource type="Texture2D" uid="uid://c0ta5ccdesgbv" path="res://pet profile ui/petInfo.png" id="8_kkc71"]
+[ext_resource type="Texture2D" uid="uid://pjrq4tuno6h0" path="res://pet profile ui/petBackToInvPressed.png" id="8_uwqws"]
+[ext_resource type="Texture2D" uid="uid://d2ee4gfmoykxc" path="res://pet profile ui/breedPet.png" id="9_cj0mu"]
+[ext_resource type="Texture2D" uid="uid://cjara1k7ebefi" path="res://pet profile ui/petAdventure.png" id="10_m6ut4"]
+[ext_resource type="Texture2D" uid="uid://b3oee5boampnr" path="res://pet profile ui/petCosmetics.png" id="11_wiwdf"]
+[ext_resource type="PackedScene" uid="uid://dk2asr4hu8gp0" path="res://petDatabase/Items Scenes/pet.tscn" id="12_pg16r"]
+[ext_resource type="Texture2D" uid="uid://b1b8dak4senbu" path="res://pet profile ui/arrow profile.png" id="14_6o2x0"]
+[ext_resource type="Script" path="res://arrow_profile.gd" id="15_a6j3e"]
+[ext_resource type="Texture2D" uid="uid://ono02xq5yb5m" path="res://pet profile ui/arrow profile right.png" id="16_xjxwf"]
+[ext_resource type="Script" path="res://arrow_profile_right.gd" id="18_o8dtq"]
+[ext_resource type="Texture2D" uid="uid://3qnuwo3b0l0d" path="res://file-lines-regular.svg" id="19_1m3ma"]
+
+[node name="petProfileSCN" type="Control"]
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1942.0
+offset_bottom = 1080.0
+script = ExtResource("1_sxs4k")
+
+[node name="Summer2" type="Sprite2D" parent="."]
+position = Vector2(968, 536)
+scale = Vector2(0.840645, 0.834874)
+texture = ExtResource("1_lbuvb")
+
+[node name="PetPanel" type="Sprite2D" parent="."]
+position = Vector2(1549, 531.679)
+scale = Vector2(0.992481, 0.992481)
+texture = ExtResource("2_d63sy")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PetPanel"]
+custom_minimum_size = Vector2(150, 150)
+offset_left = -245.0
+offset_top = -167.846
+offset_right = -95.0
+offset_bottom = -17.846
+text = "Personality :
+
+
+
+Planet Sign :"
+
+[node name="traits" type="Label" parent="PetPanel"]
+custom_minimum_size = Vector2(300, 0)
+offset_left = -45.3409
+offset_top = -167.846
+offset_right = 254.659
+offset_bottom = -144.846
+horizontal_alignment = 2
+
+[node name="name" type="Label" parent="PetPanel"]
+offset_left = -245.0
+offset_top = -463.0
+offset_right = 250.0
+offset_bottom = -420.0
+theme_override_fonts/font = ExtResource("3_mdkvu")
+theme_override_font_sizes/font_size = 35
+text = "Name"
+horizontal_alignment = 1
+
+[node name="title" type="Label" parent="PetPanel"]
+offset_left = -245.0
+offset_top = -431.0
+offset_right = 250.0
+offset_bottom = -388.0
+theme_override_fonts/font = ExtResource("3_mdkvu")
+theme_override_font_sizes/font_size = 20
+text = "The Gentlest"
+horizontal_alignment = 1
+
+[node name="ID" type="Label" parent="PetPanel"]
+offset_left = -245.0
+offset_top = -413.0
+offset_right = 250.0
+offset_bottom = -370.0
+theme_override_fonts/font = ExtResource("3_mdkvu")
+theme_override_font_sizes/font_size = 20
+text = "x"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PetPanel"]
+offset_left = -245.214
+offset_top = -376.846
+offset_right = -116.214
+offset_bottom = -167.846
+text = "Age :
+Flux :
+
+Fur : 
+Variance 1 :
+Variance 2 : 
+Eyes :"
+scroll_active = false
+
+[node name="baseCoat" type="Label" parent="PetPanel"]
+offset_left = 67.0002
+offset_top = -308.169
+offset_right = 250.0
+offset_bottom = -285.169
+text = "Shifting Dust"
+horizontal_alignment = 2
+
+[node name="variant1" type="Label" parent="PetPanel"]
+offset_left = 84.0002
+offset_top = -285.169
+offset_right = 250.0
+offset_bottom = -262.169
+text = "Shifting Dust"
+horizontal_alignment = 2
+
+[node name="variant2" type="Label" parent="PetPanel"]
+offset_left = 150.0
+offset_top = -262.532
+offset_right = 250.0
+offset_bottom = -239.532
+text = "Shifting Dust"
+horizontal_alignment = 2
+
+[node name="Eyes" type="Label" parent="PetPanel"]
+offset_left = 150.0
+offset_top = -239.532
+offset_right = 250.0
+offset_bottom = -216.532
+text = "Shifting Dust"
+horizontal_alignment = 2
+
+[node name="LineEdit" type="LineEdit" parent="PetPanel"]
+visible = false
+offset_left = -31.8262
+offset_top = -458.466
+offset_right = 35.2363
+offset_bottom = -427.466
+alignment = 1
+max_length = 45
+expand_to_text_length = true
+
+[node name="planetLabel" type="Label" parent="PetPanel"]
+custom_minimum_size = Vector2(300, 0)
+offset_left = -45.3409
+offset_top = -76.2524
+offset_right = 254.659
+offset_bottom = -53.2524
+horizontal_alignment = 2
+
+[node name="PetBackToInv" type="Button" parent="."]
+layout_mode = 0
+offset_left = -6.0
+offset_top = -4.99835
+offset_right = 290.0
+offset_bottom = 97.0016
+theme_override_icons/icon = ExtResource("3_n44a5")
+flat = true
+script = ExtResource("4_s7erx")
+texture_hover = ExtResource("5_yttoo")
+texture_base = ExtResource("3_n44a5")
+texture_clicked = ExtResource("8_uwqws")
+
+[node name="PetInventory" type="Sprite2D" parent="."]
+position = Vector2(1543.63, 865.421)
+texture = ExtResource("7_2cqm6")
+
+[node name="PetInfo" type="Sprite2D" parent="."]
+position = Vector2(1872, 96)
+texture = ExtResource("8_kkc71")
+
+[node name="BreedPet" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1827.5
+offset_top = 121.784
+offset_right = 1913.5
+offset_bottom = 207.784
+icon = ExtResource("9_cj0mu")
+flat = true
+
+[node name="PetAdventure" type="Sprite2D" parent="."]
+position = Vector2(1872, 240)
+texture = ExtResource("10_m6ut4")
+
+[node name="PetCosmetics" type="Sprite2D" parent="."]
+position = Vector2(1872, 312)
+texture = ExtResource("11_wiwdf")
+
+[node name="pet" parent="." instance=ExtResource("12_pg16r")]
+position = Vector2(552, 464)
+
+[node name="ArrowProfileLeft" type="Button" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 544.0
+offset_right = 224.0
+offset_bottom = 544.0
+icon = ExtResource("14_6o2x0")
+flat = true
+script = ExtResource("15_a6j3e")
+
+[node name="ArrowProfileRight" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1032.0
+offset_top = 552.0
+offset_right = 1032.0
+offset_bottom = 552.0
+icon = ExtResource("16_xjxwf")
+flat = true
+script = ExtResource("18_o8dtq")
+
+[node name="rename" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1739.91
+offset_top = 86.5016
+offset_right = 2131.91
+offset_bottom = 606.502
+scale = Vector2(0.0374521, 0.0374521)
+icon = ExtResource("19_1m3ma")
+flat = true
+
+[connection signal="text_submitted" from="PetPanel/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="mouse_entered" from="PetBackToInv" to="PetBackToInv" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="PetBackToInv" to="PetBackToInv" method="_on_mouse_exited"]
+[connection signal="pressed" from="PetBackToInv" to="." method="_on_pet_back_to_inv_pressed"]
+[connection signal="pressed" from="BreedPet" to="." method="_on_breed_pet_pressed"]
+[connection signal="pressed" from="ArrowProfileLeft" to="." method="_on_arrow_profile_left_pressed"]
+[connection signal="pressed" from="ArrowProfileRight" to="." method="_on_arrow_profile_right_pressed"]
+[connection signal="pressed" from="rename" to="." method="_on_rename_pressed"]

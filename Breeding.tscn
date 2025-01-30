@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0etlfw2e3hxv"]
+
+[ext_resource type="Script" path="res://pet_breeding_SCN.gd" id="1_aa8u1"]
+[ext_resource type="PackedScene" uid="uid://dk2asr4hu8gp0" path="res://petDatabase/Items Scenes/pet.tscn" id="2_l53i6"]
+[ext_resource type="Texture2D" uid="uid://736khhjtexaa" path="res://petDatabase/petVisual/00032-3561182187.png" id="3_ye421"]
+
+[node name="PetProfile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aa8u1")
+
+[node name="pet" parent="." groups=["Inventory"] instance=ExtResource("2_l53i6")]
+position = Vector2(244.047, 623)
+
+[node name="pet2" parent="." groups=["Inventory"] instance=ExtResource("2_l53i6")]
+position = Vector2(1385.35, 638)
+
+[node name="preview" parent="." groups=["Inventory"] instance=ExtResource("2_l53i6")]
+position = Vector2(573.207, 47.9549)
+scale = Vector2(0.39711, 0.39711)
+
+[node name="preview2" parent="." groups=["Inventory"] instance=ExtResource("2_l53i6")]
+position = Vector2(901.988, 287.344)
+scale = Vector2(0.39711, 0.39711)
+
+[node name="preview3" parent="." groups=["Inventory"] instance=ExtResource("2_l53i6")]
+position = Vector2(552, 287.344)
+scale = Vector2(0.39711, 0.39711)
+
+[node name="preview4" parent="." groups=["Inventory"] instance=ExtResource("2_l53i6")]
+position = Vector2(933.097, 41.1603)
+scale = Vector2(0.39711, 0.39711)
+
+[node name="ID search" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 448.695
+offset_top = 576.875
+offset_right = 530.695
+offset_bottom = 607.875
+placeholder_text = "ID search"
+max_length = 150
+expand_to_text_length = true
+
+[node name="ID search2" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 1615.5
+offset_top = 592.0
+offset_right = 1697.5
+offset_bottom = 623.0
+placeholder_text = "ID search"
+max_length = 150
+expand_to_text_length = true
+
+[node name="00032-3561182187" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(956.972, 507.737)
+scale = Vector2(1.87687, 1.41189)
+texture = ExtResource("3_ye421")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 854.585
+offset_top = 722.659
+offset_right = 1014.58
+offset_bottom = 849.659
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 854.585
+offset_top = 651.914
+offset_right = 1014.58
+offset_bottom = 688.914
+
+[connection signal="text_changed" from="ID search" to="." method="_on_id_search_text_changed"]
+[connection signal="text_changed" from="ID search2" to="." method="_on_id_search_2_text_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
