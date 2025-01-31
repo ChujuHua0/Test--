@@ -1,0 +1,339 @@
+[gd_scene load_steps=14 format=3 uid="uid://k0f78buarkah"]
+
+[ext_resource type="Script" path="res://scripts/pet_creator.gd" id="1_fgdqw"]
+[ext_resource type="Shader" path="res://scripts/shader_scripts/vignette.gdshader" id="2_xk486"]
+[ext_resource type="Script" path="res://scripts/preview_visualiser.gd" id="3_hje5c"]
+[ext_resource type="PackedScene" uid="uid://dk2asr4hu8gp0" path="res://scenes/pet.tscn" id="4_gkjrq"]
+[ext_resource type="Shader" path="res://scripts/shader_scripts/star.gdshader" id="5_j3jm2"]
+[ext_resource type="Texture2D" uid="uid://lg8bbinag6yk" path="res://assets/IMG_2584.png" id="6_7p5wk"]
+[ext_resource type="Texture2D" uid="uid://blji8llijojjj" path="res://assets/pet_creator_ui/test.png" id="6_7x1a4"]
+[ext_resource type="Texture2D" uid="uid://bc86l8you8aq8" path="res://assets/pet_creator_ui/create.png" id="7_jb8yx"]
+[ext_resource type="FontFile" uid="uid://d2k0eexoqka6k" path="res://assets/lato_font/Lato-Regular.ttf" id="7_xwdm8"]
+[ext_resource type="FontFile" uid="uid://ce7xf4lo48a2u" path="res://assets/pet_profile_ui/Artifika-Regular.ttf" id="8_mob3n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_psyss"]
+shader = ExtResource("2_xk486")
+shader_parameter/outerRadius = 2.179
+shader_parameter/MainAlpha = 1.0
+shader_parameter/vignette_color = null
+
+[sub_resource type="Theme" id="Theme_k1kw4"]
+default_font = ExtResource("7_xwdm8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pbtv3"]
+shader = ExtResource("5_j3jm2")
+shader_parameter/dimensions = Vector2(1024, 600)
+shader_parameter/small_stars = 50.0
+shader_parameter/small_stars_far_size = 0.5
+shader_parameter/small_stars_near_size = 1.0
+shader_parameter/large_stars = 8.0
+shader_parameter/large_stars_far_size = 0.5
+shader_parameter/large_stars_near_size = 1.0
+shader_parameter/far_stars_color = Color(0.692959, 0.00029225, 0.674024, 1)
+shader_parameter/near_stars_color = Color(1, 1, 0, 1)
+shader_parameter/base_scroll_speed = 0.0
+shader_parameter/additional_scroll_speed = 0.01
+
+[node name="Pet Creator" type="Control"]
+z_index = -1
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_fgdqw")
+metadata/_tab_index = 1
+metadata/_edit_vertical_guides_ = [984.871]
+metadata/_edit_horizontal_guides_ = [518.135]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_psyss")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_right = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.01, 1.01)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 597.407
+offset_top = 233.085
+offset_right = 1597.41
+offset_bottom = 733.085
+theme_override_constants/h_separation = 70
+columns = 2
+
+[node name="previewVisualiser" type="Control" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_hje5c")
+
+[node name="pet" parent="GridContainer/previewVisualiser" instance=ExtResource("4_gkjrq")]
+z_index = 2
+position = Vector2(887.309, 68.1284)
+scale = Vector2(0.511803, 0.511803)
+
+[node name="petCreatorUI" type="Control" parent="GridContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Lorchi" type="RichTextLabel" parent="GridContainer/petCreatorUI"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = -988.407
+offset_top = 454.915
+offset_right = -238.407
+offset_bottom = 742.915
+theme_override_fonts/normal_font = ExtResource("8_mob3n")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[fill]Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel interdum ipsum, at malesuada lorem. Pellentesque placerat arcu et odio consectetur cursus. Nulla porta quam ante, eget sodales sapien pretium at. Ut sit amet commodo nisl. Quisque iaculis ante turpis, at tincidunt urna efficitur nec. Fusce vehicula commodo mattis. Nunc eget dictum ligula, vitae consectetur diam. Etiam malesuada tellus a nulla facilisis, quis feugiat nisl pharetra. Nullam odio nunc, faucibus tempus mauris in, sodales auctor mauris. Nam auctor placerat nisi, a sollicitudin velit egestas eu. Duis et cursus metus. Quisque egestas lorem sed justo laoreet eleifend. Ut vel risus ex. Ut feugiat porttitor risus. Donec elit nulla, dictum nec mauris ut, vestibulum lobortis nisl. [/fill]"
+
+[node name="Flaws" type="OptionButton" parent="GridContainer/petCreatorUI"]
+z_index = 1
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 0
+offset_left = -1012.41
+offset_top = 558.915
+offset_right = -712.407
+offset_bottom = 589.915
+theme_override_fonts/font = ExtResource("7_xwdm8")
+theme_override_font_sizes/font_size = 25
+flat = true
+alignment = 1
+selected = 0
+item_count = 4
+popup/item_0/text = "Aloof"
+popup/item_1/text = "Clumsy"
+popup/item_1/id = 1
+popup/item_2/text = "Stubborn"
+popup/item_2/id = 2
+popup/item_3/text = "Timid"
+popup/item_3/id = 3
+
+[node name="Qualities" type="OptionButton" parent="GridContainer/petCreatorUI"]
+z_index = 1
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 0
+offset_left = -1012.41
+offset_top = 446.915
+offset_right = -712.407
+offset_bottom = 485.915
+theme_override_fonts/font = ExtResource("7_xwdm8")
+theme_override_font_sizes/font_size = 25
+flat = true
+alignment = 1
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "Curious"
+popup/item_1/text = "Agile"
+popup/item_1/id = 1
+popup/item_2/text = "Charming"
+popup/item_2/id = 2
+popup/item_3/text = "Playful"
+popup/item_3/id = 3
+
+[node name="Color" type="OptionButton" parent="GridContainer/petCreatorUI"]
+z_index = 1
+layout_mode = 2
+offset_left = -1012.41
+offset_top = -113.085
+offset_right = -712.404
+offset_bottom = -73.085
+theme = SubResource("Theme_k1kw4")
+theme_override_fonts/font = ExtResource("7_xwdm8")
+theme_override_font_sizes/font_size = 25
+flat = true
+alignment = 1
+selected = 0
+item_count = 10
+popup/item_0/text = "Twilight"
+popup/item_1/text = "Ember"
+popup/item_1/id = 1
+popup/item_2/text = "Magenta"
+popup/item_2/id = 2
+popup/item_3/text = "Cotton"
+popup/item_3/id = 3
+popup/item_4/text = "Sand"
+popup/item_4/id = 5
+popup/item_5/text = "Earth"
+popup/item_5/id = 6
+popup/item_6/text = "Light"
+popup/item_6/id = 7
+popup/item_7/text = "Lemonade"
+popup/item_7/id = 8
+popup/item_8/text = "Moss"
+popup/item_8/id = 9
+popup/item_9/text = "Steel"
+popup/item_9/id = 10
+
+[node name="Variant" type="OptionButton" parent="GridContainer/petCreatorUI"]
+z_index = 1
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+offset_left = -1012.41
+offset_top = -1.085
+offset_right = -712.404
+offset_bottom = 38.915
+theme_override_fonts/font = ExtResource("7_xwdm8")
+theme_override_font_sizes/font_size = 25
+flat = true
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "Normal"
+popup/item_1/text = "Gradient"
+popup/item_1/id = 1
+
+[node name="Eyes" type="OptionButton" parent="GridContainer/petCreatorUI"]
+z_index = 1
+layout_mode = 0
+offset_left = -1012.41
+offset_top = 110.915
+offset_right = -712.404
+offset_bottom = 149.915
+theme_override_fonts/font = ExtResource("7_xwdm8")
+theme_override_font_sizes/font_size = 25
+flat = true
+alignment = 1
+selected = 0
+item_count = 10
+popup/item_0/text = "Green"
+popup/item_1/text = "Purple"
+popup/item_1/id = 1
+popup/item_2/text = "Pink"
+popup/item_2/id = 2
+popup/item_3/text = "Gold"
+popup/item_3/id = 3
+popup/item_4/text = "Sky"
+popup/item_4/id = 4
+popup/item_5/text = "Grey"
+popup/item_5/id = 5
+popup/item_6/text = "Orange"
+popup/item_6/id = 6
+popup/item_7/text = "Rouge"
+popup/item_7/id = 9
+popup/item_8/text = "White"
+popup/item_8/id = 7
+popup/item_9/text = "Black"
+popup/item_9/id = 8
+
+[node name="Flux" type="OptionButton" parent="GridContainer/petCreatorUI"]
+z_index = 1
+layout_mode = 2
+offset_left = -1012.41
+offset_top = 222.915
+offset_right = -712.404
+offset_bottom = 262.915
+theme_override_fonts/font = ExtResource("7_xwdm8")
+theme_override_font_sizes/font_size = 25
+flat = true
+alignment = 1
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "Boreas"
+popup/item_1/text = "Zephyrus"
+popup/item_1/id = 1
+popup/item_2/text = "Notus"
+popup/item_2/id = 2
+popup/item_3/text = "Eurus"
+popup/item_3/id = 3
+
+[node name="planetChoice" type="OptionButton" parent="GridContainer/petCreatorUI"]
+z_index = 1
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 0
+offset_left = -1012.41
+offset_top = 334.915
+offset_right = -712.407
+offset_bottom = 373.915
+theme_override_fonts/font = ExtResource("7_xwdm8")
+theme_override_font_sizes/font_size = 25
+flat = true
+alignment = 1
+selected = 0
+allow_reselect = true
+item_count = 4
+popup/item_0/text = "Lorchi"
+popup/item_1/text = "Solune"
+popup/item_1/id = 1
+popup/item_2/text = "Nebraxys"
+popup/item_2/id = 2
+popup/item_3/text = "Eclatène"
+popup/item_3/id = 3
+
+[node name="LineEdit" type="LineEdit" parent="GridContainer/petCreatorUI"]
+z_index = 1
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 0
+offset_left = -964.713
+offset_top = 671.22
+offset_right = -764.713
+offset_bottom = 710.22
+theme_override_fonts/font = ExtResource("7_xwdm8")
+theme_override_font_sizes/font_size = 25
+placeholder_text = "Creature Name"
+alignment = 1
+
+[node name="petCreate" type="Button" parent="GridContainer/petCreatorUI"]
+z_index = 1
+layout_mode = 0
+offset_left = 315.593
+offset_top = 618.915
+offset_right = 607.593
+offset_bottom = 713.915
+icon = ExtResource("7_jb8yx")
+
+[node name="Planet" type="Label" parent="GridContainer/petCreatorUI"]
+visible = false
+z_index = 1
+layout_mode = 0
+offset_left = -684.407
+offset_top = 334.915
+offset_right = -568.407
+offset_bottom = 377.915
+theme_override_fonts/font = ExtResource("8_mob3n")
+theme_override_font_sizes/font_size = 35
+text = "Lorchi
+"
+horizontal_alignment = 1
+
+[node name="Test" type="Sprite2D" parent="GridContainer/petCreatorUI"]
+position = Vector2(-172.053, 306.097)
+texture = ExtResource("6_7x1a4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GridContainer/petCreatorUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/petCreatorUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="back" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_pbtv3")
+position = Vector2(960, 544)
+scale = Vector2(1.03397, 1.01675)
+texture = ExtResource("6_7p5wk")
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="item_selected" from="GridContainer/petCreatorUI/Flaws" to="." method="_on_flaws_item_selected"]
+[connection signal="item_selected" from="GridContainer/petCreatorUI/Qualities" to="." method="_on_qualities_item_selected"]
+[connection signal="item_selected" from="GridContainer/petCreatorUI/Color" to="." method="_on_color_item_selected"]
+[connection signal="item_selected" from="GridContainer/petCreatorUI/Variant" to="." method="_on_variant_item_selected"]
+[connection signal="item_selected" from="GridContainer/petCreatorUI/Eyes" to="." method="_on_eyes_item_selected"]
+[connection signal="item_selected" from="GridContainer/petCreatorUI/Flux" to="." method="_on_flux_item_selected"]
+[connection signal="item_selected" from="GridContainer/petCreatorUI/planetChoice" to="." method="_on_planet_choice_item_selected"]
+[connection signal="text_changed" from="GridContainer/petCreatorUI/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="pressed" from="GridContainer/petCreatorUI/petCreate" to="." method="_on_pet_create_pressed"]

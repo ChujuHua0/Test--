@@ -11,13 +11,8 @@ config_version=5
 [application]
 
 config/name="breedingames3"
-run/main_scene="res://main_menu.tscn"
+run/main_scene="res://scenes/main/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
-
-[autoload]
-
-GlobalData="*res://global_data.gd"
 
 [display]
 
@@ -35,8 +30,17 @@ version_control/autoload_on_startup=true
 [file_customization]
 
 folder_colors={
-"res://Font/": "green",
-"res://mainMenu/": "orange",
-"res://pet profile ui/": "orange",
-"res://petCreator UI/": "orange"
+"res://assets/": "orange",
+"res://assets/lato_font/": "green",
+"res://assets/main_menu_assets/": "orange",
+"res://assets/pet_creator_ui/": "orange",
+"res://assets/pet_profile_ui/": "orange"
+}
+
+[input]
+
+Escape={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194305,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
 }
