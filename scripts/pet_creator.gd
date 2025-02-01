@@ -74,7 +74,6 @@ func _on_pet_create_pressed() -> void:
 		get_tree().call_group("Inventory","updateInventory")
 		randomCreatureGenerator()
 		createPetPressed.emit()
-		self.visible = false
 	else:
 		print("you already have too much pets!")
 		

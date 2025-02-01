@@ -1,8 +1,5 @@
 extends Control
 
-signal slotClicked(slot)
-signal toProfile(id)
-
 @onready var slots: Array= [$"1",$"2",$"3",$"4",$"5",$"6",$"7",$"8"]
 @onready var packedProfile: Node= preload("res://scenes/pet_profile_scn.tscn").instantiate()
 
@@ -45,13 +42,10 @@ func _on_button_8_pressed() -> void:
 	changeToProfile(7)
 
 func _on_pet_creator_create_pet_pressed() -> void:
-	self.visible = true
 	updateInventory()
 
 func _on_pet_profile_scn_back_to_inv() -> void:
-	self.visible = true
 	updateInventory()
 
 func _on_breeding_scn_from_breeding_to_inv() -> void:
-	self.visible = true
 	print("meow")

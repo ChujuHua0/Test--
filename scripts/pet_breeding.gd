@@ -4,7 +4,7 @@ extends Control
 @onready var packed_inventory: Node= load("res://scenes/pet_inventory.tscn").instantiate()
 @onready var parent1: Pet= Pet.new()
 @onready var parent2: Pet= Pet.new()
-@onready var pet_data: Pet= Pet.new()
+@onready var pet: Pet= Pet.new()
 
 # Baby variables declaration
 var babyCoatColor: int
@@ -22,12 +22,9 @@ func _process(_delta: float) -> void:
 		get_parent().add_child(packed_inventory)
 		queue_free()
 
-		
-	
-@warning_ignore("shadowed_variable")
-func updateProfile(pet_data):
-	$pet.update(pet_data)
-	print(pet_data.name)
+func updateProfile(pet):
+	$pet.update(pet)
+	print(pet.name)
 
 func _on_id_search_2_text_changed(new_text: String) -> void:
 	var index = int(new_text)-1
@@ -49,7 +46,7 @@ func _on_id_search_text_changed(new_text: String) -> void:
 
 func _on_button_pressed() -> void:
 	if parent1 != parent2:
-		previewUpdate(pet_data)
+		previewUpdate()
 
 func coatColor():
 	if parent1.ownCoatColor == parent2.ownCoatColor:
@@ -68,17 +65,18 @@ func coatVariant():
 	return 0 if normal <= shifting else 1
 
 func _on_button_2_pressed() -> void:
-	breedPet(pet_data)
+	breedPet()
 	
-func breedPet(pet):
+func breedPet():
 	for i in randi_range(1,4):
 		pet.ownCoatColor = coatColor()
 		pet.ownCoatVariant = coatVariant()
 		pet.ownEyesColor = [parent1.ownEyesColor, parent2.ownEyesColor].pick_random()
 		GlobalData.addPetToInventory(pet.clone())
-		%petInventoryVariant.updateInventory()
+		packed_inventory.updateInventory()
 
-func previewUpdate(pet):
+func previewUpdate():
+	pet = Pet.new()
 	var preview: Array= []
 	var previewSlot: Array= [$preview,$preview2,$preview3,$preview4]
 	for i in previewSlot.size():
@@ -87,7 +85,3 @@ func previewUpdate(pet):
 		pet.ownEyesColor = [parent1.ownEyesColor, parent2.ownEyesColor].pick_random()
 		preview.append(pet.clone())
 		previewSlot[i].update(preview[i])
-
-
-func _on_pet_profile_scn_to_breeding() -> void:
-	self.visible = true

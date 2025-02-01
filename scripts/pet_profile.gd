@@ -5,8 +5,6 @@ var id: int
 @onready var packed_inventory: Node= load("res://scenes/pet_inventory.tscn").instantiate()
 @onready var packed_breed: Node= load("res://scenes/Breeding.tscn").instantiate()
 
-signal backToInv 
-signal toBreeding
 
 func _enter_tree() -> void:
 	updateProfile(GlobalData.getPetInventoryAtIndex(id))
