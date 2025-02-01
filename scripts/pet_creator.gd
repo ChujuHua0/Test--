@@ -85,5 +85,6 @@ func randomCreatureGenerator():
 	pet_data.name = PetFactory.RANDOM_NAME.pick_random()
 	if GlobalData.addPetToInventory(pet_data.clone()):
 		get_tree().call_group("Inventory","updateInventory")
+		get_tree().change_scene_to_file("res://scenes/pet_inventory.tscn")
 	else:
 		print("you already have too much pets!")

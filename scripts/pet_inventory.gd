@@ -1,8 +1,10 @@
 extends Control
 
 signal slotClicked(slot)
+signal toProfile(id)
 
 @onready var slots: Array= [$"1",$"2",$"3",$"4",$"5",$"6",$"7",$"8"]
+@onready var packedProfile: Node= preload("res://scenes/pet_profile_scn.tscn").instantiate()
 
 func _ready() -> void:
 	self.updateInventory()
@@ -15,15 +17,11 @@ func updateInventory():
 		print("nuh huh")	
 
 func changeToProfile(index):
-	$"../petProfileSCN".updateProfile(GlobalData.getPetInventoryAtIndex(index))
-	slotClicked.emit(index)
-	self.visible = false	
-
-
+	packedProfile.id = index
+	get_parent().add_child(packedProfile)
+	queue_free()
 func _on_button_pressed() -> void:
 	changeToProfile(0)
-	
-	
 	
 func _on_button_2_pressed() -> void:
 	changeToProfile(1)

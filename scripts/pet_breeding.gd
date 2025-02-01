@@ -1,7 +1,7 @@
 extends Control
 
-signal fromBreedingToInv
 
+@onready var packed_inventory: Node= load("res://scenes/pet_inventory.tscn").instantiate()
 @onready var parent1: Pet= Pet.new()
 @onready var parent2: Pet= Pet.new()
 @onready var pet_data: Pet= Pet.new()
@@ -19,8 +19,9 @@ var babyEyesVariant: int
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Escape"):
-		self.visible= false
-		fromBreedingToInv.emit()
+		get_parent().add_child(packed_inventory)
+		queue_free()
+
 		
 	
 @warning_ignore("shadowed_variable")

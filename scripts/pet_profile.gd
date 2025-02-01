@@ -1,18 +1,16 @@
 extends Control
 
-@onready var id: int= 1
+var id: int
 @onready var texture_clicked: Texture= preload("res://assets/pet_profile_ui/profile_to_inv_pressed.png")
+@onready var packed_inventory: Node= load("res://scenes/pet_inventory.tscn").instantiate()
+@onready var packed_breed: Node= load("res://scenes/Breeding.tscn").instantiate()
 
 signal backToInv 
 signal toBreeding
 
-func _ready() -> void:
-	print("ready")
+func _enter_tree() -> void:
+	updateProfile(GlobalData.getPetInventoryAtIndex(id))
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
 func updateProfile(pet_data: Pet):
 	$PetPanel/Flux.text = PetFactory.GENDERS[pet_data.gender]
 	$PetPanel/name.text = pet_data.name
@@ -42,19 +40,14 @@ func _on_rename_pressed() -> void:
 	#$PetPanel/LineEdit.visible = false
 
 
-func _on_pet_inventory_variant_slot_clicked(slot: Variant) -> void:
-	self.updateProfile(GlobalData.getPetInventoryAtIndex(slot))
-	self.visible = true
-	print("rawr")
-
-
 func _on_pet_back_to_inv_pressed() -> void:
 	$PetBackToInv.icon = texture_clicked
-	self.visible = false
-	backToInv.emit()
+	get_parent().add_child(packed_inventory)
+	queue_free()
 
 
 func _on_breed_pet_pressed() -> void:
-	self.visible = false
-	toBreeding.emit()
+	get_parent().add_child(packed_breed)
+	queue_free()
+
 	
