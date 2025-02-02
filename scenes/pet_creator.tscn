@@ -75,7 +75,6 @@ script = ExtResource("3_hje5c")
 [node name="pet" parent="GridContainer/previewVisualiser" instance=ExtResource("4_gkjrq")]
 z_index = 2
 position = Vector2(887.309, 68.1284)
-scale = Vector2(0.511803, 0.511803)
 
 [node name="petCreatorUI" type="Control" parent="GridContainer"]
 z_index = 1
@@ -155,24 +154,24 @@ flat = true
 alignment = 1
 selected = 0
 item_count = 10
-popup/item_0/text = "Twilight"
+popup/item_0/text = "Shadow"
 popup/item_1/text = "Ember"
 popup/item_1/id = 1
-popup/item_2/text = "Magenta"
+popup/item_2/text = "Wisteria"
 popup/item_2/id = 2
-popup/item_3/text = "Cotton"
+popup/item_3/text = "White"
 popup/item_3/id = 3
-popup/item_4/text = "Sand"
+popup/item_4/text = "Ecru"
 popup/item_4/id = 5
-popup/item_5/text = "Earth"
+popup/item_5/text = "Sunset"
 popup/item_5/id = 6
-popup/item_6/text = "Light"
+popup/item_6/text = "Chartreux"
 popup/item_6/id = 7
-popup/item_7/text = "Lemonade"
+popup/item_7/text = "Electrify"
 popup/item_7/id = 8
-popup/item_8/text = "Moss"
+popup/item_8/text = "Ash"
 popup/item_8/id = 9
-popup/item_9/text = "Steel"
+popup/item_9/text = "Sky"
 popup/item_9/id = 10
 
 [node name="Variant" type="OptionButton" parent="GridContainer/petCreatorUI"]
@@ -190,7 +189,7 @@ alignment = 1
 selected = 0
 item_count = 2
 popup/item_0/text = "Normal"
-popup/item_1/text = "Gradient"
+popup/item_1/text = "Shifting"
 popup/item_1/id = 1
 
 [node name="Eyes" type="OptionButton" parent="GridContainer/petCreatorUI"]

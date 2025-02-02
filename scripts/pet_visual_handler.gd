@@ -8,14 +8,17 @@ func update(pet_data) -> void:
 			$coat.play("shifting")
 	match pet_data.ownCoatVariant1:
 		0:
-			$ears.play("earsDefault")
+			$variant_1.play("earsDefault")
 		1:
-			$ears.play("calico")
+			$variant_1.play("colour_point")
+		2:
+			$variant_1.play("spiruline")
 	match pet_data.ownEyesVariant:
 		0:
 			$eyes.play("eyesDefault")
-		#1:
-			#$eyes.play("eyesStarry")
+		1:
+			$eyes.play("odd_eyes")
+
 	$coat.set_frame(pet_data.ownCoatColor)
 	$ears.set_frame(pet_data.ownVariant1Color)
 	$eyes.set_frame(pet_data.ownEyesColor)

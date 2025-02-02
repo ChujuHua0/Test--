@@ -42,6 +42,7 @@ func clone() -> Pet:
 	
 	pet.ownCoatColor = self.ownCoatColor
 	pet.ownVariant1Color = self.ownVariant1Color
+	pet.ownVariant2Color = self.ownVariant2Color
 	pet.ownEyesColor = self.ownEyesColor
 	pet.ownSclerasColor = self.ownSclerasColor
 

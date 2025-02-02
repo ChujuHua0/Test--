@@ -13,6 +13,7 @@ func _ready() -> void:
 	make_option_button_items_non_radio_checkable($GridContainer/petCreatorUI/Eyes)
 	make_option_button_items_non_radio_checkable($GridContainer/petCreatorUI/Flux)
 	
+	
 func make_option_button_items_non_radio_checkable(option_button: OptionButton) -> void:
 	var pm: PopupMenu = option_button.get_popup()
 	for i in pm.get_item_count():
@@ -28,7 +29,8 @@ func make_option_button_items_non_radio_checkable(option_button: OptionButton) -
 	pet_data.ownEyesColor = randi_range(0, PetFactory.EYE_COLORS.size()-1)
 	pet_data.name = PetFactory.RANDOM_NAME.pick_random()
 	$GridContainer/petCreatorUI/LineEdit.text = pet_data.name
-
+	$GridContainer/petCreatorUI/Color.select(randi_range(0,$GridContainer/petCreatorUI/Color.get_item_count()))
+	pet_data.ownCoatColor = $GridContainer/petCreatorUI/Color.selected()
 	preview.update(pet_data)
 	
 ########## Selection ##########
