@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://duaxnod2mk2er"]
+
+[ext_resource type="Texture2D" uid="uid://btjknrpltey44" path="res://assets/time_skip_assets/bannerpassDay2.png" id="1_b753h"]
+[ext_resource type="Script" path="res://scripts/time_skip_and_currencies.gd" id="1_m30fn"]
+[ext_resource type="Texture2D" uid="uid://g4dnceney8w2" path="res://assets/time_skip_assets/bannerpassDay.png" id="2_8sbuh"]
+[ext_resource type="FontFile" uid="uid://d2k0eexoqka6k" path="res://assets/lato_font/Lato-Regular.ttf" id="3_llpp5"]
+[ext_resource type="Texture2D" uid="uid://drw4ohnyh0gq7" path="res://assets/time_skip_assets/Frame 3.png" id="4_w4quh"]
+[ext_resource type="Texture2D" uid="uid://dp62osolnb5pt" path="res://assets/time_skip_assets/Frame 2.png" id="5_jj32x"]
+[ext_resource type="Texture2D" uid="uid://bsny17sdnqpsm" path="res://assets/player_assets/GoldenWheat.png" id="6_sf17n"]
+
+[node name="Control" type="Control" groups=["Profile"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.36359
+offset_top = 504.416
+offset_right = -998.636
+offset_bottom = 6.41589
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m30fn")
+
+[node name="BannerpassDay2" type="Sprite2D" parent="."]
+position = Vector2(258.029, 111.927)
+texture = ExtResource("1_b753h")
+
+[node name="BannerpassDay" type="Sprite2D" parent="."]
+position = Vector2(24.9536, -98.5926)
+texture = ExtResource("2_8sbuh")
+
+[node name="GW number" type="Label" parent="BannerpassDay"]
+texture_filter = 1
+custom_minimum_size = Vector2(100, 0)
+offset_left = 157.179
+offset_top = 199.418
+offset_right = 197.179
+offset_bottom = 222.418
+text = "300
+"
+
+[node name="time_button" type="Button" parent="."]
+z_index = 2
+custom_minimum_size = Vector2(620, 620)
+layout_mode = 2
+offset_left = -11.0912
+offset_top = -7.45026
+offset_right = 608.909
+offset_bottom = 612.55
+scale = Vector2(0.242, 0.242)
+theme_override_fonts/font = ExtResource("3_llpp5")
+theme_override_font_sizes/font_size = 100
+flat = true
+icon_alignment = 1
+
+[node name="Frame3" type="Sprite2D" parent="."]
+position = Vector2(65.1323, 71.7462)
+scale = Vector2(0.242046, 0.242046)
+texture = ExtResource("4_w4quh")
+
+[node name="Frame2" type="Sprite2D" parent="."]
+position = Vector2(64.4768, 56.8962)
+scale = Vector2(0.242, 0.242)
+texture = ExtResource("5_jj32x")
+
+[node name="GoldenWheat" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(164.219, 112.619)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("6_sf17n")
+
+[connection signal="pressed" from="time_button" to="." method="_on_time_button_pressed"]

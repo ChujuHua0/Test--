@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://k0f78buarkah"]
+[gd_scene load_steps=13 format=3 uid="uid://k0f78buarkah"]
 
 [ext_resource type="Script" path="res://scripts/pet_creator.gd" id="1_fgdqw"]
 [ext_resource type="Shader" path="res://scripts/shader_scripts/vignette.gdshader" id="2_xk486"]
-[ext_resource type="Script" path="res://scripts/preview_visualiser.gd" id="3_hje5c"]
 [ext_resource type="PackedScene" uid="uid://dk2asr4hu8gp0" path="res://scenes/pet.tscn" id="4_gkjrq"]
 [ext_resource type="Shader" path="res://scripts/shader_scripts/star.gdshader" id="5_j3jm2"]
 [ext_resource type="Texture2D" uid="uid://lg8bbinag6yk" path="res://assets/pet_creator_ui/pet_creator_bg.png" id="6_7p5wk"]
@@ -70,11 +69,11 @@ columns = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("3_hje5c")
 
 [node name="pet" parent="GridContainer/previewVisualiser" instance=ExtResource("4_gkjrq")]
 z_index = 2
-position = Vector2(887.309, 68.1284)
+position = Vector2(932.207, 77.5984)
+scale = Vector2(0.4, 0.4)
 
 [node name="petCreatorUI" type="Control" parent="GridContainer"]
 z_index = 1

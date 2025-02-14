@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0etlfw2e3hxv"]
+[gd_scene load_steps=5 format=3 uid="uid://c0etlfw2e3hxv"]
 
 [ext_resource type="Script" path="res://scripts/pet_breeding.gd" id="1_q0q2i"]
 [ext_resource type="PackedScene" uid="uid://dk2asr4hu8gp0" path="res://scenes/pet.tscn" id="2_l53i6"]
 [ext_resource type="Texture2D" uid="uid://736khhjtexaa" path="res://assets/pet_visuals/00032-3561182187.png" id="3_ye421"]
+[ext_resource type="Texture2D" uid="uid://bsny17sdnqpsm" path="res://assets/player_assets/GoldenWheat.png" id="4_xwv6n"]
 
 [node name="PetProfile" type="Control"]
 layout_mode = 3
@@ -21,20 +22,20 @@ position = Vector2(244.047, 623)
 position = Vector2(1385.35, 638)
 
 [node name="preview" parent="." groups=["Inventory"] instance=ExtResource("2_l53i6")]
-position = Vector2(573.207, 47.9549)
-scale = Vector2(0.39711, 0.39711)
+position = Vector2(654.024, 47.9549)
+scale = Vector2(0.3, 0.3)
 
 [node name="preview2" parent="." groups=["Inventory"] instance=ExtResource("2_l53i6")]
-position = Vector2(901.988, 287.344)
-scale = Vector2(0.39711, 0.39711)
+position = Vector2(982.805, 287.344)
+scale = Vector2(0.3, 0.3)
 
 [node name="preview3" parent="." groups=["Inventory"] instance=ExtResource("2_l53i6")]
-position = Vector2(552, 287.344)
-scale = Vector2(0.39711, 0.39711)
+position = Vector2(632.817, 287.344)
+scale = Vector2(0.3, 0.3)
 
 [node name="preview4" parent="." groups=["Inventory"] instance=ExtResource("2_l53i6")]
-position = Vector2(933.097, 41.1603)
-scale = Vector2(0.39711, 0.39711)
+position = Vector2(1013.91, 41.1603)
+scale = Vector2(0.3, 0.3)
 
 [node name="ID search" type="LineEdit" parent="."]
 layout_mode = 0
@@ -75,6 +76,19 @@ offset_left = 854.585
 offset_top = 651.914
 offset_right = 1014.58
 offset_bottom = 688.914
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 880.317
+offset_top = 623.0
+offset_right = 953.317
+offset_bottom = 646.0
+text = "Need 300"
+
+[node name="GoldenWheat" type="Sprite2D" parent="."]
+position = Vector2(968.753, 634.838)
+scale = Vector2(0.0496297, 0.0496298)
+texture = ExtResource("4_xwv6n")
 
 [connection signal="text_changed" from="ID search" to="." method="_on_id_search_text_changed"]
 [connection signal="text_changed" from="ID search2" to="." method="_on_id_search_2_text_changed"]

@@ -1,11 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1nq8gewnrki4"]
+[gd_scene load_steps=2 format=3 uid="uid://b1nq8gewnrki4"]
 
 [ext_resource type="PackedScene" uid="uid://cilgeo4ntwg4h" path="res://scenes/main/main_scene.tscn" id="1_1qx8d"]
-[ext_resource type="PackedScene" uid="uid://r8v7c6gg8g7t" path="res://scenes/pet_inventory.tscn" id="2_j2xwy"]
-[ext_resource type="PackedScene" uid="uid://k0f78buarkah" path="res://scenes/pet_creator.tscn" id="4_kx4gk"]
-[ext_resource type="PackedScene" uid="uid://c0etlfw2e3hxv" path="res://scenes/Breeding.tscn" id="5_1xuaj"]
 
-[node name="mainScene" type="Control"]
+[node name="root" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,23 +16,3 @@ size_flags_vertical = 6
 
 [node name="mainScene" parent="." instance=ExtResource("1_1qx8d")]
 layout_mode = 1
-
-[node name="petInventoryVariant" parent="." instance=ExtResource("2_j2xwy")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="Pet Creator" parent="." groups=["Inventory"] instance=ExtResource("4_kx4gk")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 31.0
-
-[node name="BreedingSCN" parent="." instance=ExtResource("5_1xuaj")]
-visible = false
-layout_mode = 1
-offset_top = 0.0
-
-[connection signal="createPetPressed" from="Pet Creator" to="petInventoryVariant" method="_on_pet_creator_create_pet_pressed"]

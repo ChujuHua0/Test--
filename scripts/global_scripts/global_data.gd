@@ -19,4 +19,5 @@ static func addPetToInventory(pet: Pet) -> bool:
 		return true
 	return false
 	
-	
+static func removeFromInventory(index: int):
+	_petInventory.remove_at(index)

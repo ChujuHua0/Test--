@@ -33,8 +33,10 @@ folder_colors={
 "res://assets/": "orange",
 "res://assets/lato_font/": "green",
 "res://assets/main_menu_assets/": "orange",
-"res://assets/pet_creator_ui/": "orange",
-"res://assets/pet_profile_ui/": "orange"
+"res://assets/pet_creator_ui/": "blue",
+"res://assets/pet_profile_ui/": "blue",
+"res://assets/pet_visuals/": "blue",
+"res://assets/player_assets/": "pink"
 }
 
 [input]
